@@ -1,0 +1,29 @@
+[
+  {
+    "ID": 1,
+    "user_login": "artvorobyev",
+    "user_email": "79062272107@yandex.ru",
+    "user_registered": "2020-03-19 19:20:20",
+    "roles": [
+      "administrator"
+    ]
+  },
+  {
+    "ID": 2,
+    "user_login": "andrey",
+    "user_email": "anddavydov@ya.ru",
+    "user_registered": "2020-04-23 17:52:44",
+    "roles": [
+      "administrator"
+    ]
+  },
+  {
+    "ID": 3,
+    "user_login": "subscriber",
+    "user_email": "subscriber@example.com",
+    "user_registered": "2020-05-29 09:26:09",
+    "roles": [
+      "subscriber"
+    ]
+  }
+]
