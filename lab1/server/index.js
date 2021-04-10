@@ -2,6 +2,8 @@ var express = require('express');
 var fs = require('fs');
 var app = express();
 const expressSwagger = require('express-swagger-generator')(app);
+const expressLogging = require('express-logging');
+const logger = require('logops');
 let options = {
   swaggerDefinition: {
     info: {
@@ -19,6 +21,7 @@ let options = {
 };
 expressSwagger(options);
 app.use(express.json());
+app.use(expressLogging(logger));
 
 /**
  * @typedef Error
@@ -217,7 +220,10 @@ app.options('/users', function (req, res) {
   res.status(200).header('Allow', 'OPTIONS, GET, POST, PUT, DELETE').json({});
 });
 
-var server = app.listen(8080, function () {
+const portArg = process.argv.find((arg) => arg.includes('--port='));
+const port = portArg ? parseInt(portArg.replace(/\D/g, '')) : 8081;
+
+var server = app.listen(port, function () {
   var host = server.address().address;
   var port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
